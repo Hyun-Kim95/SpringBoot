@@ -45,3 +45,9 @@
 
 * SET 부분은 <set\> 으로 감싸주는게 관례임(SET안쓰고)
   * set 안쪽에 if문이 다 안돌면 오류가 날 수도 있기 때문에 사용
+
+* getForPrintArticle
+  * 닉네임까지 보이게 출력
+* getForPrintArticles
+  * 원래 getArticles에 getForPrintArticle 을 합쳐서 만듬
+  * 마지막줄에 if문을 이용해서 페이지번호(limitStart), 한 페이지에 보여줄 갯수(limitTake) 추가 코딩

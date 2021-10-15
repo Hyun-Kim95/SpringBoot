@@ -28,5 +28,4 @@ mybatis:
     * logback.xml
     * 필요할 때 복붙으로 사용하면 됨
 
-* 실행하면 LOG_PATH_IS_UNDEFINED 폴더가 자동으로 생성됨
-  * 로그랑 오류 모아놓는 폴더임
+

@@ -17,6 +17,11 @@
   * searchKeyword 검색할 내용
     * 값이 ?searchKeyword= 까지만 들어오면 공백으로 들어오므로 null로 바꿔줌
     * 좌우 공백은 제거해야 하므로 null이 아닐때, trim() 붙혀줌
+* 페이징 기능 추가
+  * @RequestParam(defaultValue="1")int page
+    * 값이 안들어오면 디폴트 값 1
+  * itemsInAPage
+    * 한 페이지에 보여줄 리스트의 갯수
 
 ### doAdd
 
@@ -24,6 +29,7 @@
 * Map을 사용한 이유
   * 성공이나 실패했을 시에 보여줘야 할 정보들이 하나가 아니라서
     * 실패이유, 몇번째 id인지 등등
+* 세션을 이용해서 로그인됐으면 id정보도 param에 추가
 
 ### doDelete
 
@@ -33,8 +39,11 @@
 
 * 2번이 마지막 id일 때, 2번 id를 삭제 후 리스트를 추가하면 3번부터 추가됨
 
+* id와 memberId가 같은지, 로그인했는지, 1번 회원(관리자) 인지 확인을 위해 서비스호출
+
 ### doModify
 
 * id 찾아서 제목과 내용 수정
 * updateDate 수정됨(Util.getNowDateStr())
+* id와 memberId가 같은지, 로그인했는지, 1번 회원(관리자) 인지 확인을 위해 서비스호출
 

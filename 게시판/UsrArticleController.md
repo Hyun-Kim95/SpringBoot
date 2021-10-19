@@ -47,3 +47,6 @@
 * updateDate 수정됨(Util.getNowDateStr())
 * id와 memberId가 같은지, 로그인했는지, 1번 회원(관리자) 인지 확인을 위해 서비스호출
 
+### doAddReply
+
+* doAdd 복사해서 수정

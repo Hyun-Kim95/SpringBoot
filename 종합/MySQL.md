@@ -51,9 +51,10 @@ CREATE TABLE `member`(
 );
 
 ##### untact 클릭한 상태로 F5 -> member클릭한 상태로 F6 -> 인덱스 클릭 -> `id`asc 밑에 클릭해서 `loginId` 선택 -> 인덱스 종류를 UNIQUE로 설정(같은 아이디 사용불가, 로그인 아이디로 검색시 속도향상)
+### 로그인 ID로 검색했을 때
+ALTER TABLE `member` ADD UNIQUE INDEX (`loginId`);
 
 ### 회원, 테스트 데이터 생성
-
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
@@ -175,3 +176,24 @@ ALTER TABLE reply CHANGE `articleId` `relId` INT(10) UNSIGNED NOT NULL;
 
 ALTER TABLE reply ADD KEY (relTypeCode , relId);
 SELECT * FROM reply;
+
+### authKey 칼럼을 추가
+ALTER TABLE `member` ADD COLUMN authKey CHAR(80) NOT NULL AFTER loginPw;
+
+### 기존 회원의 authKey 데이터 채우기
+UPDATE `member`
+SET authKey = 'authKey1__39285f22-3157-11ec-805d-2cf05da835df__0.9446445982387704'
+WHERE id=1;
+
+UPDATE `member`
+SET authKey = 'authKey1__39286ba6-3157-11ec-805d-2cf05da835df__0.2614991490370586'
+WHERE id=2;
+
+UPDATE `member`
+SET authKey = 'authKey1__40cc142a-315a-11ec-805d-2cf05da835df__0.23235432825270513'
+WHERE id=3;
+
+### authKey 칼럼에 유니크 인덱스 추가
+ALTER TABLE `member` ADD UNIQUE INDEX (`authKey`);
+
+SELECT * FROM `member`;

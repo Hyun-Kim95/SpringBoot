@@ -27,3 +27,4 @@
   * <button onclick="location.href='b.html';"\>B로 이동</button\>
   * <button onclick="location.replace('b.html');"\>B로 이동</button\>
     * k.html 에서 a.html로 왔다가 이 버튼으로 b.html로 이동하면 뒤로가기 했을 때, k로 돌아감
+
